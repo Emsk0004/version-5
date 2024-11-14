@@ -1,0 +1,303 @@
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Menu */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #aea286;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Gør z-index højere end hero-billedet */
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: end;
+}
+
+.menu a:hover {
+  color: #0e405a;
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  margin-bottom: 5px;
+  transition: 0.2s linear;
+}
+.burger {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  nav.active .menu {
+    display: block;
+    background-color: #9f9898;
+    position: absolute;
+    top: 94px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
+
+  nav.active .menu a {
+    font-size: 24px;
+  }
+}
+
+/* Overskrifter og fonts */
+
+.creepster-regular {
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Creepster", system-ui;
+  margin-top: 10px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#game_ui {
+  font-family: "Creepster", system-ui;
+  font-size: 11px;
+  margin-top: 10px;
+  text-align: center;
+  color: #f3ecdc;
+}
+
+/* Farver */
+
+body {
+  background-color: #f3ecdc;
+}
+
+main {
+  background-color: #f3ecdc;
+  padding: 0.5rem;
+}
+
+/* Timer */
+
+#time_board {
+  position: absolute;
+  top: 3%; /* Placeres i toppen */
+  right: 3%; /* Placeres til højre */
+  width: 10%; /* Ændre bredden for en vandret timer */
+}
+#time_container {
+  width: 110%; /* Ændre bredden for en vandret timer */
+  aspect-ratio: 5 / 1; /* Forholdet skal være bredere end højere */
+  border: solid 2.5px #f3ecdc; /* Synlig kant */
+}
+#time_sprite {
+  width: 100%;
+  height: 100%; /* Sikrer, at vi ser hele containeren til start */
+  transform-origin: left; /* Krymper fra venstre mod højre */
+}
+
+.time {
+  animation-name: time_kf;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes time_kf {
+  0% {
+    scale: 1 1;
+    background-color: #a0d98b; /* Startfarve rød */
+  }
+  25% {
+    background-color: #7dad6c; /* Skift 25% */
+  }
+  50% {
+    background-color: #ffdd6e;
+  }
+  75% {
+    background-color: #f68e5f;
+  }
+  100% {
+    scale: 0 1;
+    background-color: #a13030;
+  }
+}
+
+/* Knapper */
+
+/* Spil igen knap */
+
+/* Grundstil for knappen */
+.zombie-button {
+  background-color: #3e3e3e; /* Mørkegrå baggrund */
+  color: #f3ecdc; /* Lys tekst */
+  font-family: "Creepster", cursive; /* Uhyggelig skrifttype */
+  font-size: 24px;
+  padding: 15px 30px;
+  border: 3px solid #6a6a6a;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Effekt når musen er over knappen */
+.zombie-button:hover {
+  background-color: #550000; /* Rødlig farve, som blod */
+  color: #ffe1e1; /* Lys rød tekst */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ekstra styling (fx blodstænk) */
+.zombie-button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-30deg);
+  border-radius: 30%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Placerer teksten foran blodstænk */
+.zombie-button span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Forside-play knap */
+/* Grundstil for Hexagon knap */
+.stop-sign-button {
+  width: 150px;
+  height: 150px;
+  background-color: #550000; /* Klassisk stopskilt rød */
+  color: #f3ecdc; /* Hvid tekst */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); /* Hexagon form */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0px 0px 0px 5px #ffffff, /* Hvid kant */ 0px 4px 10px rgba(0, 0, 0, 0.3); /* Let skygge */
+}
+
+/* Hover-effekt for knappen */
+.stop-sign-button:hover {
+  background-color: #990000; /* Mørkere rød ved hover */
+  box-shadow: 0px 0px 0px 5px #ffffff, /* Hvid kant */ 0px 6px 15px rgba(0, 0, 0, 0.5); /* Øget skygge */
+  transform: scale(1.05); /* Lidt større ved hover */
+}
+
+.stop-sign-button {
+  font-family: "Creepster", system-ui;
+}

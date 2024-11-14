@@ -1,0 +1,236 @@
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Elementstyles */
+#screen {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+#game,
+#start,
+#game_over,
+#level_complete {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#start,
+#game_over,
+#level_complete {
+  display: none;
+}
+
+#game_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(billeder/baggrund.svg);
+  background-size: cover;
+}
+
+#game_elements,
+#game_ui {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#game_ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#mand_container {
+  position: absolute;
+  width: 10%;
+  aspect-ratio: 589.8/620.6;
+  top: -22%;
+  /* left: 68%; */
+}
+
+#mand_sprite {
+  width: 100%;
+  height: 100%;
+  background-image: url(billeder/mand.svg);
+  background-size: cover;
+}
+
+#zombie_container {
+  position: absolute;
+  width: 10%;
+  aspect-ratio: 596.6/654.4;
+  top: -22%;
+  /* left: 23%; */
+}
+
+#zombie_sprite {
+  width: 100%;
+  height: 100%;
+  background-image: url(billeder/zombie.svg);
+  background-size: cover;
+}
+
+#score_board {
+  position: absolute;
+  width: 9%;
+  aspect-ratio: 797.4/580.9;
+  top: 3%;
+  left: 13%;
+  /* background-image: url(billeder/point.svg);
+  background-size: cover; */
+}
+
+#life_board {
+  position: absolute;
+  top: 3%; /* Placeres i toppen */
+  left: 2%; /* Placeres til højre */
+  width: 12%;
+  display: flex;
+  gap: 2%;
+}
+
+#liv1,
+#liv2,
+#liv3 {
+  width: 25%;
+  aspect-ratio: 31.5/45.4;
+  background-image: url(billeder/liv_enkelt.svg);
+  background-size: cover;
+}
+
+#liv {
+  position: absolute;
+  bottom: 17%;
+  left: 26%;
+  font-size: 2rem;
+  font-family: "Creepster", system-ui;
+}
+
+.gray {
+  display: none;
+}
+
+/* ///////////////////////////ANIMATION///////////////////////////*/
+
+/* Drop animation */
+.drop {
+  animation-name: drop_kf;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes drop_kf {
+  0% {
+    transform: translate(0, -200%);
+  }
+  100% {
+    transform: translate(0, 600%);
+  }
+}
+
+/* Spin animation - zombie*/
+.spin {
+  animation-name: spin_kf;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes spin_kf {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.frys {
+  animation-play-state: paused;
+}
+/* zoom animation - mand */
+
+.zoom_in {
+  animation-name: zoom_in_kf;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes zoom_in_kf {
+  0% {
+    scale: 1;
+  }
+  30% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 0;
+  }
+}
+
+/* forsvind animation - zombie */
+
+.forsvind {
+  animation-name: forsvind_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes forsvind_kf {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    rotate: 360deg;
+  }
+}
+
+/* ///////////////////////////POSITIONER OG DELAY///////////////////////////*/
+
+.pos1 {
+  left: 25%;
+}
+.pos2 {
+  left: 35%;
+}
+.pos3 {
+  left: 45%;
+}
+.pos4 {
+  left: 55%;
+}
+.pos5 {
+  left: 65%;
+}
+.pos6 {
+  left: 75%;
+}
+
+.delay1 {
+  animation-delay: 0s;
+}
+.delay2 {
+  animation-delay: 0.3s;
+}
+.delay3 {
+  animation-delay: 0.7s;
+}
+.delay4 {
+  animation-delay: 1s;
+}

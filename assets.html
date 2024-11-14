@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Maitree&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="spil.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.webp" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="spil.html">Spil</a></li>
+                <li><a href="grafik.html">Grafik</a></li>
+                <li><a href="assets.html">Assets</a></li>
+                <li><a href="teknik.html">Teknik</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Assetliste</h1>
+
+        <h2>Skærme</h2>
+
+        <div class="grid_1_1_1_1">
+            <div>
+                <h3>Starteskærm</h3>
+                <img src="billeder/startskærm.svg" alt="Startskærm">
+            </div>
+
+            <div>
+                <h3>Game over</h3>
+                <img src="billeder/game-over.svg" alt="Game over">
+            </div>
+
+            <div>
+                <h3>Level complete</h3>
+                <img src="billeder/level-complete.svg" alt="Level complete">
+            </div>
+
+            <div>
+                <h3>Baggrund</h3>
+                <img src="billeder/baggrund.svg" alt="">
+            </div>
+        </div>
+
+        <h2>Figurelementer</h2>
+
+        <div class="grid_1_1">
+
+            <div>
+                <h3>Godt element</h3>
+                <img src="billeder/mand.svg" alt="Mand">
+            </div>
+
+            <div>
+                <h3>Dårligt element</h3>
+                <img src="billeder/zombie.svg" alt="Zombie">
+            </div>
+
+        </div>
+
+        <h2>UI elementer</h2>
+
+        <div class="grid_1_1_1">
+
+            <div>
+                <h3>Point</h3>
+                <img src="billeder/point.svg" alt="Point">
+            </div>
+
+            <div>
+                <h3>Liv</h3>
+                <img class="liv" src="billeder/liv_a3.svg" alt="Liv">
+            </div>
+
+            <div>
+                <h3>Timer</h3>
+                <img src="billeder/timer.svg" alt="Timer">
+            </div>
+        </div>
+
+        <h2>Knapper</h2>
+
+        <div class="grid_1_1">
+
+            <div>
+                <button class="zombie-button"><span>Spil Igen</span></button>
+            </div>
+
+            <div>
+                <button class="stop-sign-button">Play</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer></footer>
+    <script src="menu.js"></script>
+    <script src="animation.js"></script>
+</body>
+
+</html>

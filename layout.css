@@ -1,0 +1,52 @@
+/* Assetliste */
+
+.grid_1_1_1_1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.grid_1_1 {
+  display: grid;
+  grid-template-columns: 125px 125px;
+  gap: 10px;
+  justify-content: center;
+  column-gap: 100px;
+}
+
+.grid_1_1_1 {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (min-width: 700px) {
+  .grid_1_1_1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    gap: 10px;
+    justify-content: center;
+    column-gap: 200px;
+  }
+
+  .grid_1_1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    column-gap: 50px;
+  }
+}
+
+@media (min-width: 620px) {
+  #game_ui {
+    font-size: 1.5rem;
+  }
+}

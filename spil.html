@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Maitree&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="spil.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.webp" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="spil.html">Spil</a></li>
+                <li><a href="grafik.html">Grafik</a></li>
+                <li><a href="assets.html">Assets</a></li>
+                <li><a href="teknik.html">Teknik</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div id="screen">
+            <div id="game">
+
+                <div id="game_background"></div>
+
+                <div id="game_elements">
+                    <div id="mand_container">
+                        <div id="mand_sprite">
+                        </div>
+                    </div>
+
+                    <div id="zombie_container">
+                        <div id="zombie_sprite">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="game_ui">
+                    <div id="score_board">Point: 0</div>
+                    <div id="life_board">
+                        <div id="liv1"></div>
+                        <div id="liv2"></div>
+                        <div id="liv3"></div>
+                    </div>
+                    <div id="time_board">
+                        <div id="time_container">
+                            <div id="time_sprite"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="start"></div>
+
+        <div id="game_over"></div>
+
+        <div id="level_complete"></div>
+
+    </main>
+
+    <footer></footer>
+    <script src="menu.js"></script>
+    <script src="animation.js"></script>
+</body>
+
+</html>
