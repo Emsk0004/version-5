@@ -21,7 +21,7 @@ header {
   padding: 20px;
   background-color: #aea286;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Gør z-index højere end hero-billedet */
+  z-index: 2000; /* Gør z-index højere end hero-billedet */
 }
 
 .logo img {
@@ -270,6 +270,55 @@ main {
 }
 
 /* Forside-play knap */
+
+.container {
+  position: relative;
+  display: inline-block; /* Holder elementerne sammen */
+}
+
+/* Forside-play knap */
+/* Grundstil for Hexagon knap */
+#forside_knap {
+  width: 150px;
+  height: 150px;
+  background-color: #550000; /* Klassisk stopskilt rød */
+  color: #f3ecdc; /* Hvid tekst */
+  font-family: "Creepster", cursive; /* Uhyggelig skrifttype */
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); /* Hexagon form */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  box-shadow: 0px 0px 0px 5px #ffffff, /* Hvid kant */ 0px 4px 10px rgba(0, 0, 0, 0.3); /* Let skygge */
+  top: 38%;
+  left: 62%;
+  transform: translate(-17%, -6%) rotate(-39deg);
+  animation-name: start_knap_kf;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Hover-effekt for knappen */
+#forside_knap:hover {
+  background-color: #990000; /* Mørkere rød ved hover */
+  box-shadow: 0px 0px 0px 5px #ffffff, /* Hvid kant */ 0px 6px 15px rgba(0, 0, 0, 0.5); /* Øget skygge */
+  transform: scale(1.05); /* Lidt større ved hover */
+  transform: translate(-17%, -6%) rotate(-39deg);
+}
+
+@keyframes start_knap_kf {
+  100% {
+    scale: 1.2;
+  }
+}
+
 /* Grundstil for Hexagon knap */
 .stop-sign-button {
   width: 150px;

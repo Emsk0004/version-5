@@ -11,23 +11,6 @@
   position: relative;
 }
 
-#game,
-#start,
-#game_over,
-#level_complete {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#start,
-#game_over,
-#level_complete {
-  display: none;
-}
-
 #game_background {
   width: 100%;
   height: 100%;
@@ -38,6 +21,212 @@
   background-size: cover;
 }
 
+#start {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: pink; */
+  background-image: url(billeder/startskærm.png);
+  background-size: cover;
+  z-index: 1000;
+}
+
+#start_knap {
+  background-color: #20511d; /* Mørkegrøn baggrund */
+  color: #ffffff; /* Hvid tekst */
+  font-family: "Creepster", cursive; /* Uhyggelig skrifttype */
+  font-size: 24px;
+  padding: 15px 30px;
+  border: 3px solid #6a6a6a;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  outline: none;
+  top: 80%;
+  left: 46%;
+  width: 8%;
+
+  animation-name: start_knap_kf;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+/* Effekt når musen er over knappen */
+#start_knap:hover {
+  background-color: #550000; /* Rødlig farve, som blod */
+  color: #ffe1e1; /* Lys rød tekst */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ekstra styling (fx blodstænk) */
+#start_knap:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-30deg);
+  border-radius: 30%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Placerer teksten foran blodstænk */
+#start_knap span {
+  position: relative;
+  z-index: 2;
+}
+
+#game_over {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: red; */
+  background-image: url(billeder/game-over.svg);
+  background-size: cover;
+  z-index: 1000;
+}
+#genstart1 {
+  background-color: #3e3e3e; /* Mørkegrå baggrund */
+  color: #f3ecdc; /* Lys tekst */
+  font-family: "Creepster", cursive; /* Uhyggelig skrifttype */
+  font-size: 24px;
+  padding: 15px 30px;
+  border: 3px solid #6a6a6a;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  outline: none;
+  animation-name: genstart1_kf;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  top: 73%;
+  left: 45%;
+  width: 11%;
+}
+@keyframes genstart1_kf {
+  100% {
+    scale: 1.2;
+  }
+}
+
+/* Effekt når musen er over knappen */
+#genstart1:hover {
+  background-color: #550000; /* Rødlig farve, som blod */
+  color: #ffe1e1; /* Lys rød tekst */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ekstra styling (fx blodstænk) */
+#genstart1:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-30deg);
+  border-radius: 30%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Placerer teksten foran blodstænk */
+#genstart1 span {
+  position: relative;
+  z-index: 2;
+}
+
+#level_complete {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: green; */
+  background-image: url(billeder/level-complete.svg);
+  background-size: cover;
+  z-index: 1000;
+}
+
+#genstart2 {
+  background-color: #3e3e3e; /* Mørkegrå baggrund */
+  color: #f3ecdc; /* Lys tekst */
+  font-family: "Creepster", cursive; /* Uhyggelig skrifttype */
+  font-size: 24px;
+  padding: 15px 30px;
+  border: 3px solid #6a6a6a;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  outline: none;
+  animation-name: genstart2_kf;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  top: 68%;
+  left: 47%;
+  width: 11%;
+}
+@keyframes genstart2_kf {
+  100% {
+    scale: 1.2;
+  }
+}
+
+/* Effekt når musen er over knappen */
+#genstart2:hover {
+  background-color: #550000; /* Rødlig farve, som blod */
+  color: #ffe1e1; /* Lys rød tekst */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ekstra styling (fx blodstænk) */
+#genstart2:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-30deg);
+  border-radius: 30%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Placerer teksten foran blodstænk */
+#genstart2 span {
+  position: relative;
+  z-index: 2;
+}
+
+.skjul {
+  display: none;
+}
+
 #game_elements,
 #game_ui {
   width: 100%;
@@ -46,6 +235,7 @@
   top: 0;
   left: 0;
 }
+
 #game_ui {
   position: absolute;
   top: 0;
@@ -55,7 +245,8 @@
   pointer-events: none;
 }
 
-#mand_container {
+#mand_container,
+#mand_container1 {
   position: absolute;
   width: 10%;
   aspect-ratio: 589.8/620.6;
@@ -63,14 +254,17 @@
   /* left: 68%; */
 }
 
-#mand_sprite {
+#mand_sprite,
+#mand_sprite1 {
   width: 100%;
   height: 100%;
   background-image: url(billeder/mand.svg);
   background-size: cover;
 }
 
-#zombie_container {
+#zombie_container,
+#zombie_container1,
+#zombie_container2 {
   position: absolute;
   width: 10%;
   aspect-ratio: 596.6/654.4;
@@ -78,7 +272,9 @@
   /* left: 23%; */
 }
 
-#zombie_sprite {
+#zombie_sprite,
+#zombie_sprite1,
+#zombie_sprite2 {
   width: 100%;
   height: 100%;
   background-image: url(billeder/zombie.svg);
@@ -142,6 +338,18 @@
   100% {
     transform: translate(0, 600%);
   }
+}
+
+.speed1 {
+  animation-duration: 3s;
+}
+
+.speed2 {
+  animation-duration: 2s;
+}
+
+.speed3 {
+  animation-duration: 1.8s;
 }
 
 /* Spin animation - zombie*/
