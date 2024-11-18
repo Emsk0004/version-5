@@ -34,7 +34,7 @@ function startSpillet() {
   document.querySelector("#time_sprite").classList.add("time");
 
   // Timer er færdig
-  document.querySelector("#time_sprite").addEventListener("animationend", MandClickReset);
+  document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
 
   // Drop-animationer + Random position og random delay
 
@@ -43,8 +43,8 @@ function startSpillet() {
   mand1.classList.add("drop", "pos" + nyRand(6));
 
   // Start drop-animationer på elementer
-  zombie1.classList.add("drop");
-  mand1.classList.add("drop");
+  // zombie1.classList.add("drop");
+  // mand1.classList.add("drop");
 
   // Gør begge elementer klikbare
   zombie1.addEventListener("mousedown", zombieClickHandler);
@@ -53,8 +53,6 @@ function startSpillet() {
   // Lyt efter drop-animation på zombie kørt en gang
   zombie1.addEventListener("animationiteration", ZombieDropReset);
   mand1.addEventListener("animationiteration", MandDropReset);
-
-  // Lyt efter timer-animation er færdig
 }
 
 function zombieClickHandler() {
@@ -75,7 +73,7 @@ function zombieClickHandler() {
   // Afspil god lyd
   // Start forsvind-animation
 
-  document.querySelector("#zombie_sprite").classList.add("forsvind");
+  zombie1.firstElementChild.classList.add("forsvind");
 
   //Lyt efter forsvind-animation færdig
   zombie1.addEventListener("animationend", ZombieClickReset);
@@ -86,7 +84,7 @@ function ZombieClickReset() {
 
   // Nulstil klasserne på zombien for at fjerne forsvind-animation og tidligere position
   zombie1.classList = ""; // Fjern alle klasser
-  document.querySelector("#zombie_sprite").classList = ""; // Fjern forsvind-effekt på sprite
+  zombie1.firstElementChild.classList = ""; // Fjern forsvind-effekt på sprite
 
   // Tving reflow for at nulstille animationen
   zombie1.offsetWidth;
@@ -104,22 +102,26 @@ function ZombieDropReset() {
   // Skriv liv ud
   document.querySelector("#liv" + liv).classList.add("gray");
 
-  // Mist et liv
-  liv--;
-
   // Vis element igen
   // Ny random position
 
   // Genstart drop-animation
 
-  document.querySelector("#zombie_sprite").classList = "";
+  zombie1.firstElementChild.classList = "";
   zombie1.addEventListener("mousedown", zombieClickHandler);
 
   zombie1.classList = ""; // Nulstil alle klasser
   zombie1.offsetWidth; // Tving reflow for at nulstille animationen
   zombie1.classList.add("drop", "pos" + nyRand(6), "delay" + nyRand(4)); // Tilføj klasser igen
 
+  // Mist et liv
+  liv--;
+
   // Tjek om der er liv tilbage
+  if (liv <= 0) {
+    console.log("Ikke flere liv");
+    stopSpillet();
+  }
 }
 
 function mandClickHandler() {
@@ -139,7 +141,7 @@ function mandClickHandler() {
 
   // Afspil dårlig lyd
   // Start forsvind-animation
-  document.querySelector("#mand_sprite").classList.add("zoom_in");
+  mand1.firstElementChild.classList.add("zoom_in");
 
   //Lyt efter forsvind-animation færdig
   mand1.addEventListener("animationend", MandClickReset);
@@ -155,7 +157,7 @@ function MandClickReset() {
 
   // Fjern alle klasser for at nulstille animation og position
   mand1.classList = ""; // Nulstil klasser på manden
-  document.querySelector("#mand_sprite").classList = ""; // Nulstil eventuelle animationer på sprite
+  mand1.firstElementChild.classList = ""; // Nulstil eventuelle animationer på sprite
 
   // Tving reflow for at sikre, at klassen nulstilles
   mand1.offsetWidth;
@@ -165,8 +167,6 @@ function MandClickReset() {
 
   // Gør manden klikbar igen
   mand1.addEventListener("mousedown", mandClickHandler);
-
-  // Tjek om der er liv tilbage
 }
 
 function MandDropReset() {
@@ -177,8 +177,8 @@ function MandDropReset() {
 
   // Genstart drop-animation
 
-  document.querySelector("#mand_sprite").classList = "";
-  zombie1.addEventListener("mousedown", mandClickHandler);
+  mand1.firstElementChild.classList = "";
+  mand1.addEventListener("mousedown", mandClickHandler);
 
   mand1.classList = ""; // Nulstil alle klasser
   mand1.offsetWidth; // Tving reflow for at nulstille animationen
@@ -188,11 +188,38 @@ function MandDropReset() {
 function stopSpillet() {
   console.log("stopSpillet");
 
-  // Fjern alle animationer
-  // Fjern alle eventListerner-ere
+  // Fjern timer
+  document.querySelector("#time_sprite").classList.remove("time");
+  // document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
+
+  // Fjern alle animationer og fjern alle eventListerner-ere på zombie
+  zombie1.classList = "";
+  zombie1.firstElementChild.classList = "";
+  zombie1.removeEventListener("animationiteration", ZombieDropReset);
+  zombie1.removeEventListener("mousedown", zombieClickHandler);
+  zombie1.removeEventListener("animationend", ZombieClickReset);
+
+  // Fjern alle animationer og fjern alle eventListerner-ere på mand
+  mand1.classList = "";
+  mand1.firstElementChild.classList = "";
+  mand1.removeEventListener("animationiteration", MandDropReset);
+  mand1.removeEventListener("mousedown", mandClickHandler);
+  mand1.removeEventListener("animationend", MandClickReset);
 
   // Tjek om jeg har mere end 10 point
-  // Tjek om jeg har liv tilbage
+
+  if (liv <= 0) {
+    gameOver();
+  } else if (point >= 4) {
+    levelComplete();
+  }
+
+  // // Tjek om jeg har liv tilbage
+  // if (liv <= 0) {
+  //   // Hvis det er sandt
+  //   console.log("Ikke flere liv");
+  //   stopSpillet();
+  // }
 }
 
 function gameOver() {
